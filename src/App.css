@@ -1,38 +1,53 @@
-.App {
-  text-align: center;
+/* Navbar */
+.logo1{
+  color: grey;
 }
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.logo2{
+  color: palevioletred;
 }
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.logoTxt{
   display: flex;
-  flex-direction: column;
+  flex-wrap: wrap;
+}
+.navbar{
+  display: flex;
+  justify-content: space-around;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
 }
-
-.App-link {
-  color: #61dafb;
+.header{
+  background-color:rgb(69, 60, 60);
 }
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.header input{
+  padding: 10px;
+  border-radius: 20px;
+  border: 0px;
+  font-size: 20px;
+  width: 200px;
+  background-color: rgba(0,0,0,0);
+  color: rgb(40, 37, 37);
+}
+.searchBar{
+  background-color: rgb(91, 81, 81);
+  display: flex;
+  align-items: center;
+  border-radius: 20px;
+  padding-right: 10px;
+}
+.header input:focus{
+  outline: none;
+}
+.navbarList{
+  display: flex;
+}
+.navbarList li{
+  margin: 10px;
+  font-size: 20px;
+  font-weight: 500;
+  list-style: none;
+  color: palevioletred;
+}
+.navbarList li:hover{
+  text-decoration: underline;
+  cursor: pointer;
+  color: grey;
 }
