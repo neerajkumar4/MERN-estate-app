@@ -8,21 +8,22 @@
 .logoTxt{
   display: flex;
   flex-wrap: wrap;
+  font-size: 2em;
 }
 .navbar{
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
+  padding: 0% 2% 0% 2%;
   align-items: center;
 }
 .header{
   background-color:rgb(69, 60, 60);
 }
-.header input{
+.searchBar input{
   padding: 10px;
-  border-radius: 20px;
+  border-radius: 10px;
   border: 0px;
   font-size: 20px;
-  width: 200px;
   background-color: rgba(0,0,0,0);
   color: rgb(40, 37, 37);
 }
@@ -30,8 +31,26 @@
   background-color: rgb(91, 81, 81);
   display: flex;
   align-items: center;
-  border-radius: 20px;
+  border-radius: 10px;
   padding-right: 10px;
+}
+.searchIcon{
+  background-color: rgb(69, 60, 60);
+  border-width: 0px;
+  font-size: 20px;
+  color: white;
+}
+.hideSearchIcon{
+  background-color: rgba(0,0,0,0);
+  border-width: 0px;
+  font-size: 20px;
+  color: white;
+  padding: 10px;
+}
+
+.navTabs{
+  display: flex;
+  flex-direction: row;
 }
 .header input:focus{
   outline: none;
@@ -41,7 +60,7 @@
 }
 .navbarList li{
   margin: 10px;
-  font-size: 20px;
+  font-size: 18px;
   font-weight: 500;
   list-style: none;
   color: palevioletred;
@@ -50,4 +69,45 @@
   text-decoration: underline;
   cursor: pointer;
   color: grey;
+}
+.Link{
+  text-decoration: none;
+}
+
+@media only screen and (max-width:800px){
+  .homeTab{
+    display: none;
+  }
+  .aboutTab{
+    display: none;
+  }
+  .searchBar input{
+    padding: 4px;
+    width: 100%;
+    font-size: 16px;
+  }
+  .logoTxt{
+    font-size: 1.8em;
+  }
+  .navbarList li{
+    font-size: 16px;
+  }
+}
+@media only screen and (max-width:500px){
+  .logoTxt{
+    font-size: 1.5em;
+  }
+  .searchBar input{
+    padding: 0px;
+    width: 100%;
+    font-size: 14px;
+  }
+  .navbarList li{
+    font-size: 14px;
+  }
+}
+@media only screen and (max-width:300px){
+  .logoTxt{
+    font-size: 1em;
+  }
 }
