@@ -1,6 +1,7 @@
 import express from "express";
 import mongoose from "mongoose";
 import dotenv from "dotenv";
+import router from "./routes/user.route.js";
 
 dotenv.config();
 mongoose
@@ -12,6 +13,8 @@ mongoose
     console.log(err);
   });
 const app = express();
+
+app.use("/app/test", router);
 
 app.listen(3000, () => {
   console.log("Server is running at port 3000!");
