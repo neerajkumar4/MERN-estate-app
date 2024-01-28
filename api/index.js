@@ -19,7 +19,15 @@ app.use(cors());
 app.use(express.json());
 app.use("/api/test", userRouter);
 app.use("/api/auth", authRouter);
-
 app.listen(4000, () => {
   console.log("Server is running at port 4000!");
+});
+
+app.use((err, req, res, next) => {
+  if (err.statusCode) {
+    return res
+      .status(err.statusCode)
+      .json({ success: false, message: err.message });
+  }
+  res.status(500).json({ success: false, message: err.message });
 });
