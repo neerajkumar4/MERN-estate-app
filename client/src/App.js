@@ -4,6 +4,7 @@ import { Home, Signin, Signup, About, Profile } from "./pages";
 import { Header } from "./components";
 import { ChakraProvider } from "@chakra-ui/react";
 import PrivateRoute from "./components/PrivateRoute";
+import CreateListing from "./pages/CreateListing";
 
 const App = () => {
   return (
@@ -17,6 +18,7 @@ const App = () => {
           <Route path="/about" element={<About />} />
           <Route element={<PrivateRoute />}>
             <Route path="/profile" element={<Profile />} />
+            <Route path="/create-listing" element={<CreateListing />} />
           </Route>
         </Routes>
       </BrowserRouter>
