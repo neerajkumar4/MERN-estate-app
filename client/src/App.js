@@ -1,12 +1,17 @@
 import "./App.css";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import { Home, Signin, Signup, About, Profile } from "./pages";
-import { Header } from "./components";
+import {
+  Home,
+  Signin,
+  Signup,
+  About,
+  Profile,
+  CreateListing,
+  UpdateListing,
+  Listing,
+} from "./pages";
+import { Header, PrivateRoute } from "./components";
 import { ChakraProvider } from "@chakra-ui/react";
-import PrivateRoute from "./components/PrivateRoute";
-import CreateListing from "./pages/CreateListing";
-import UpdateListing from "./pages/UpdateListing";
-import Listing from "./pages/Listing";
 
 const App = () => {
   return (
@@ -18,7 +23,7 @@ const App = () => {
           <Route path="/sign-in" element={<Signin />} />
           <Route path="/sign-up" element={<Signup />} />
           <Route path="/about" element={<About />} />
-          <Route path='/listing/:listingId' element={<Listing />} />
+          <Route path="/listing/:listingId" element={<Listing />} />
           <Route element={<PrivateRoute />}>
             <Route path="/profile" element={<Profile />} />
             <Route path="/create-listing" element={<CreateListing />} />
