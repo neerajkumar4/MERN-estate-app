@@ -9,8 +9,10 @@ import {
 import { app } from "../firebase";
 import { updateUserStart,updateUserSuccess,updateUserFailure, signOutUserStart, signOutUserFailure, signOutUserSuccess, deleteUserFailure, deleteUserSuccess, deleteUserStart } from "../redux/user/userSlice";
 import { Link } from "react-router-dom";
+import { useToast } from "@chakra-ui/react";
 
 const Profile = () => {
+  const toast = useToast();
   const { currentUser,loading, error } = useSelector((state) => state.user);
   const dispatch = useDispatch();
   const fileRef = useRef(null);
@@ -72,6 +74,13 @@ const Profile = () => {
       }
       dispatch(updateUserSuccess(data));
       setUpdateSuccess(true);
+      toast({
+        title: 'Account updated.',
+        description: "We've updated your account for you.",
+        status: 'success',
+        duration: 9000,
+        isClosable: true,
+      })
     } catch (error) {
       dispatch(updateUserFailure(error.message));
     }
@@ -86,6 +95,13 @@ const Profile = () => {
         return;
       }
       dispatch(signOutUserSuccess(data));
+      toast({
+        title: 'Log out.',
+        description: "you are logged out",
+        status: 'success',
+        duration: 9000,
+        isClosable: true,
+      })
     } catch (error) {
       dispatch(signOutUserFailure(error.message));
     }
@@ -102,6 +118,13 @@ const Profile = () => {
         return;
       }
       dispatch(deleteUserSuccess(data));
+      toast({
+        title: 'Account deleted.',
+        description: "Sorry to see you go😣",
+        status: 'error',
+        duration: 9000,
+        isClosable: true,
+      })
     } catch (error) {
       dispatch(deleteUserFailure(error.message));
     }
@@ -136,6 +159,13 @@ const Profile = () => {
       setUserListings((prev) =>
         prev.filter((listing) => listing._id !== listingId)
       );
+      toast({
+        title: 'List Deleted',
+        description: "List has been deleted!",
+        status: 'error',
+        duration: 9000,
+        isClosable: true,
+      })
     } catch (error) {
       console.log(error.message);
     }

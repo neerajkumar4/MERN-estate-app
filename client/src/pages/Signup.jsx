@@ -1,8 +1,10 @@
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { OAuth } from "../components";
+import { useToast } from "@chakra-ui/react";
 
 const Signup = () => {
+  const toast = useToast();
   const [formData, setFormData] = useState({});
   const [error, setError] = useState(null);
   const [loading, setLoading] = useState(false);
@@ -33,6 +35,13 @@ const Signup = () => {
       }
       setLoading(false);
       setError(null);
+      toast({
+        title: 'Account created.',
+        description: "We've created your account for you.",
+        status: 'success',
+        duration: 9000,
+        isClosable: true,
+      })
       navigate("/sign-in");
     } catch (error) {
       setLoading(false);

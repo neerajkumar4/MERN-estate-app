@@ -8,6 +8,7 @@ import {
 import { app } from '../firebase';
 import { useSelector } from 'react-redux';
 import { useNavigate, useParams } from 'react-router-dom';
+import { useToast } from '@chakra-ui/react';
 
 export default function UpdateListing() {
   const { currentUser } = useSelector((state) => state.user);
@@ -32,6 +33,7 @@ export default function UpdateListing() {
   const [uploading, setUploading] = useState(false);
   const [error, setError] = useState(false);
   const [loading, setLoading] = useState(false);
+  const toast = useToast();
 
   useEffect(() => {
     const fetchListing = async () => {
@@ -140,6 +142,7 @@ export default function UpdateListing() {
   };
 
   const handleSubmit = async (e) => {
+    
     e.preventDefault();
     try {
       if (formData.imageUrls.length < 1)
@@ -163,6 +166,13 @@ export default function UpdateListing() {
       if (data.success === false) {
         setError(data.message);
       }
+      toast({
+        title: 'List updated',
+        description: "We've updated the list",
+        status: 'success',
+        duration: 9000,
+        isClosable: true,
+      })
       navigate(`/listing/${data._id}`);
     } catch (error) {
       setError(error.message);

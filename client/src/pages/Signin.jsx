@@ -7,8 +7,10 @@ import {
   signInSuccess,
 } from "../redux/user/userSlice";
 import { OAuth } from "../components";
+import { useToast } from "@chakra-ui/react";
 
 const Signin = () => {
+  const toast = useToast();
   const [formData, setFormData] = useState({});
   const { loading, error } = useSelector((state) => state.user);
   const navigate = useNavigate();
@@ -36,6 +38,13 @@ const Signin = () => {
         return;
       }
       dispatch(signInSuccess(data));
+      toast({
+        title: "Signed In",
+        description: "You are signed in successfully!😊",
+        status: "success",
+        duration: 9000,
+        isClosable: true,
+      });
       navigate("/");
     } catch (error) {
       dispatch(signInFailure(error.message));

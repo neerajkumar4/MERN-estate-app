@@ -2,15 +2,12 @@
 @tailwind components;
 @tailwind utilities;
 
-body{
-  background-color: rgb(40, 37, 37);
-}
 /* Navbar */
 .logo1{
-  color: grey;
+  color: #F1C376;
 }
 .logo2{
-  color: palevioletred;
+  color: white;
 }
 .logoTxt{
   display: flex;
@@ -24,35 +21,34 @@ body{
   align-items: center;
 }
 .header{
-  background-color:rgb(69, 60, 60);
+  background-color:#606C5D;
 }
 .searchBar input{
-  padding: 10px;
-  border-radius: 10px;
-  border: 0px;
   font-size: 20px;
-  background-color: rgba(0,0,0,0);
-  color: rgb(40, 37, 37);
+  width: 100%;
+  background-color: black;
+  color: #F7E6C4;
+}
+.searchBar input:focus{
+ outline: none;
 }
 .searchBar{
-  background-color: rgb(91, 81, 81);
+  background-color: black;
   display: flex;
   align-items: center;
-  border-radius: 10px;
-  padding-right: 10px;
 }
 .searchIcon{
-  background-color: rgb(69, 60, 60);
-  border-width: 0px;
+  background-color: #606C5D;
   font-size: 20px;
   color: white;
 }
 .hideSearchIcon{
-  background-color: rgba(0,0,0,0);
+  background-color: black;
   border-width: 0px;
   font-size: 20px;
   color: white;
   padding: 10px;
+  margin-right: 4px;
 }
 
 .navTabs{
@@ -72,12 +68,12 @@ body{
   font-size: 18px;
   font-weight: 500;
   list-style: none;
-  color: palevioletred;
+  color: #F1C376;
 }
 .navbarList li:hover{
   text-decoration: underline;
   cursor: pointer;
-  color: grey;
+  color: #F7E6C4;
 }
 .Link{
   text-decoration: none;
@@ -91,7 +87,7 @@ body{
     display: none;
   }
   .searchBar input{
-    padding: 4px;
+    padding: 0px;
     width: 100%;
     font-size: 16px;
   }
@@ -119,4 +115,24 @@ body{
   .logoTxt{
     font-size: 1em;
   }
+}
+
+/* home page */
+.title1{
+ color:#606C5D ;
+}
+.title2{
+color:#F1C376 ;
+}
+
+.tagLine{
+  color: #748E63;
+}
+
+/* about page */
+.aboutTitle{
+  color: #F1C376;
+}
+.aboutText{
+  color: #606C5D;
 }
