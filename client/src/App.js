@@ -9,6 +9,7 @@ import {
   CreateListing,
   UpdateListing,
   Listing,
+  Search,
 } from "./pages";
 import { Header, PrivateRoute } from "./components";
 import { ChakraProvider } from "@chakra-ui/react";
@@ -23,6 +24,7 @@ const App = () => {
           <Route path="/sign-in" element={<Signin />} />
           <Route path="/sign-up" element={<Signup />} />
           <Route path="/about" element={<About />} />
+          <Route path="/search" element={<Search />} />
           <Route path="/listing/:listingId" element={<Listing />} />
           <Route element={<PrivateRoute />}>
             <Route path="/profile" element={<Profile />} />
