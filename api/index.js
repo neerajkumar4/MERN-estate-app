@@ -6,7 +6,7 @@ import userRouter from "./routes/user.route.js";
 import authRouter from "./routes/auth.route.js";
 import listingRouter from "./routes/listing.route.js";
 import cookieParser from "cookie-parser";
-import path from 'path';
+
 dotenv.config();
 mongoose
   .connect(process.env.MONGO)
@@ -16,8 +16,6 @@ mongoose
   .catch((err) => {
     console.log(err);
   });
-
-  const __dirname = path.resolve();
 const app = express();
 app.use(cors());
 app.use(express.json());
@@ -28,10 +26,7 @@ app.use("/api/listing", listingRouter);
 app.listen(4000, () => {
   console.log("Server is running at port 4000!");
 });
-app.use(express.static(path.join(__dirname, '/client/build')));
-app.get('*', (req, res) => {
-  res.sendFile(path.join(__dirname, 'client', 'build', 'index.html'));
-})
+
 app.use((err, req, res, next) => {
   if (err.statusCode) {
     return res
