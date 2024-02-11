@@ -1,7 +1,6 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-
+.main{
+  background-color: #F7E6C4;
+}
 /* Navbar */
 .logo1{
   color: #F1C376;
